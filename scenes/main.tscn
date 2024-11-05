@@ -37,6 +37,7 @@ position = Vector2(72, 352)
 [node name="Player2" parent="." instance=ExtResource("2_ovjlp")]
 position = Vector2(1208, 352)
 rotation = 3.14159
+Player = 1
 
 [node name="LeftScoreZone" parent="." instance=ExtResource("4_rleb1")]
 position = Vector2(-8, 0)
