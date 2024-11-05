@@ -11,8 +11,10 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	player_scored.emit()
+	if body is Ball:
+		player_scored.emit()
 
 
 func _on_body_exited(body: Node2D) -> void:
-	body.queue_free()
+	if body is Ball:
+		body.queue_free()

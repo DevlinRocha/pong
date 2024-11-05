@@ -4,6 +4,7 @@ extends ColorRect
 @onready var right_score_zone: Area2D = $RightScoreZone
 @onready var player_1_score: Label = %Player1Score
 @onready var player_2_score: Label = %Player2Score
+@onready var goal_screen: Label = %GoalScreen
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 
 
 func start_game() -> void:
+	goal_screen.visible = false
 	const BALL := preload("res://scenes/ball.tscn")
 	var new_ball = BALL.instantiate()
 
@@ -27,7 +29,13 @@ func _on_player_scored(player: int) -> void:
 			var score := int(player_1_score.text)
 			score += 1
 			player_1_score.text = str(score)
+			goal_screen.text = "Player 1 Scores"
+			goal_screen.visible = true
 		2:
 			var score := int(player_2_score.text)
 			score += 1
 			player_2_score.text = str(score)
+			goal_screen.text = "Player 2 Scores"
+			goal_screen.visible = true
+
+	get_tree().create_timer(3).timeout.connect(start_game)
