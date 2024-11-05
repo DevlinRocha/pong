@@ -1,12 +1,8 @@
 extends RigidBody2D
 
 
-func _ready() -> void:
-	print(global_position)
-
-
 func move() -> void:
-	var speed := randi_range(160, 320)
+	var speed := randi_range(240, 400)
 	var x: int = [-1, 1].pick_random()
 	var y: int = [-1, 1].pick_random()
 
